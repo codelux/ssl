@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'detect'
+
+Detect.web_platforms
