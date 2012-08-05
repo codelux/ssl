@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
 require 'detect'
 
+options={}
+unless Detect.has_openssl?
+  puts "Openssl was not detected and is required. Please install openssl (apt-get install openssl) to continue."
+  exit 1
+end
+puts "Please enter this server installation's ssl certificates location. [#{Detect::SSL_LOCATION}]"
+options[:ssl_location] = gets.chomp
+options[:ssl_location] = Detect::SSL_LOCATION if options[:ssl_location].empty?
 Detect.web_platforms

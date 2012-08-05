@@ -1,7 +1,8 @@
 = SSL Install Tool
 == What
-SSL is gem that automates creation, validation and installation of ssl certificate on the server. It detects the
+The SSL gem automates creation, validation and installation of ssl certificates on the server. It detects the
 web sites on the server and creates and sends the certificate requests to an globally trusted certificate authority.
-Optionally, it does the validation and installation of the signed certificate.
+Optionally, it does the validation and installation of the signed certificate so that minimal manual
+work needs to be involved.
 == Installing
   gem install ssl
