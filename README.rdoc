@@ -24,10 +24,10 @@ ssl COMMAND [options]
 For help use: ssl -h
 
 == Options
--h, --help          Displays help message
--v, --version       Display the version, then exit
--q, --quiet         Output as little as possible, overrides verbose
--V, --verbose       Verbose output
+*-h, --help          Displays help message
+*-v, --version       Display the version, then exit
+*-q, --quiet         Output as little as possible, overrides verbose
+*-V, --verbose       Verbose output
 
 == Author
 Leo Grove
