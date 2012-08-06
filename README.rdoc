@@ -1,5 +1,5 @@
-= **NOT READY - DO NOT INSTALL.
-= If you'd like to contribute, please message me or email at email@leogrove.com**
+= **NOT READY - DO NOT INSTALL**
+== If you'd like to contribute, please message me or email at email@leogrove.com
 = SSL Install Tool
 
 == Synopsis
@@ -25,10 +25,10 @@ ssl COMMAND [options]
 For help use: ssl -h
 
 == Options
-\-h, --help          Displays help message
-\-v, --version       Display the version, then exit
-\-q, --quiet         Output as little as possible, overrides verbose
-\-V, --verbose       Verbose output
+* -h, --help          Displays help message
+* -v, --version       Display the version, then exit
+* -q, --quiet         Output as little as possible, overrides verbose
+* -V, --verbose       Verbose output
 
 == Author
 Leo Grove
