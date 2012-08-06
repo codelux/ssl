@@ -11,7 +11,7 @@ work needs to be involved.
 
 == Examples
 Use this command to initialize ssl on your server installation
-  ssl create
+  ssl init
 
 Other examples:
   ssl create --cert_domains www.domain.com
