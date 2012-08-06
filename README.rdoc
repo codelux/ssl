@@ -30,9 +30,6 @@ For help use: ssl -h
 * -q, --quiet         Output as little as possible, overrides verbose
 * -V, --verbose       Verbose output
 
-== Author
-Leo Grove
-
-== Copyright
-Copyright (c) 2012 Leo Grove. Licensed under the MIT License:
-http://www.opensource.org/licenses/mit-license.php
+Author:: Leo Grove
+Copyright:: Copyright (c) 2012 Leo Grove.
+License:: Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
