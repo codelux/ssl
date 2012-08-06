@@ -2,37 +2,36 @@
 = SSL Install Tool
 
 == Synopsis
-   SSL is oftentimes diffucult and/or tedious to install, but it doesn't need to be.
-   The SSL gem automates creation, validation and installation of ssl certificates on the server. It detects the
-   web sites on the server and creates and sends the certificate requests to an globally trusted certificate authority.
-   Optionally, it does the validation and installation of the signed certificate so that minimal manual
-   work needs to be involved.
+SSL is oftentimes diffucult and/or tedious to install, but it doesn't need to be.
+The SSL gem automates creation, validation and installation of ssl certificates on the server. It detects the
+web sites on the server and creates and sends the certificate requests to an globally trusted certificate authority.
+Optionally, it does the validation and installation of the signed certificate so that minimal manual
+work needs to be involved.
 
 == Examples
-  Use this command to initialize ssl on your server installation
-    ssl create
+Use this command to initialize ssl on your server installation
+  ssl create
 
-  Other examples:
-    ssl create --cert_domains www.domain.com
-    ssl install --cert_number 1
+Other examples:
+  ssl create --cert_domains www.domain.com
+  ssl install --cert_number 1
 
 == Install
   gem install ssl
 == Usage
-  ssl COMMAND [options]
+ssl COMMAND [options]
 
-  For help use: ssl -h
+For help use: ssl -h
 
 == Options
-  -h, --help          Displays help message
-  -v, --version       Display the version, then exit
-  -q, --quiet         Output as little as possible, overrides verbose
-  -V, --verbose       Verbose output
-  TO DO - add additional options
+-h, --help          Displays help message
+-v, --version       Display the version, then exit
+-q, --quiet         Output as little as possible, overrides verbose
+-V, --verbose       Verbose output
 
 == Author
-  Leo Grove
+Leo Grove
 
 == Copyright
-  Copyright (c) 2012 Leo Grove. Licensed under the MIT License:
-  http://www.opensource.org/licenses/mit-license.php
+Copyright (c) 2012 Leo Grove. Licensed under the MIT License:
+http://www.opensource.org/licenses/mit-license.php
