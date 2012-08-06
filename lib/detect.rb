@@ -109,4 +109,16 @@ class Detect
     options[:ssl_cacerts_location] = gets.chomp
     options[:ssl_cacerts_location] = Detect::SSL_CACERTS_LOCATION if options[:ssl_cacerts_location].empty?
   end
+
+  def self.all
+    # :site, :cert_domains, :platform, :cert_type, :cert_org, :cert_city, :cert_state, :cert_dept, :cert_country
+    options={}
+    unless has_openssl?
+      puts "Openssl was not detected and is required. Please install openssl (apt-get install openssl) to continue."
+      exit 1
+    end
+    ssl_certs(options)
+    ssl_cacerts(options)
+    web_platforms(options)
+  end
 end

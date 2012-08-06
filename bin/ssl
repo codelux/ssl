@@ -1,12 +1,60 @@
 #!/usr/bin/env ruby
 require 'detect'
+require 'thor'
 
-# :site, :cert_domains, :platform, :cert_type, :cert_org, :cert_city, :cert_state, :cert_dept, :cert_country
-options={}
-unless Detect.has_openssl?
-  puts "Openssl was not detected and is required. Please install openssl (apt-get install openssl) to continue."
-  exit 1
+class Ssl < Thor
+  include Thor::Actions
+
+  map "-L" => :list
+
+  desc "init", "initialize and setup ssl"
+
+  def init
+    options = {}
+    unless Detect.has_openssl?
+      puts "Openssl was not detected and is required. Please install openssl (see www.openssl.org) to continue."
+      exit 1
+    end
+    options[:ssl_certs_location] = ask "Please enter this server installation's ssl certificates location."+
+          "This where the certificate will be created along with the signing request to be sent to the "+
+          "certificate authority to be signed.\n[#{Detect::SSL_CERTS_LOCATION}]\n"
+    options[:ssl_certs_location] = Detect::SSL_CERTS_LOCATION if options[:ssl_certs_location].empty?
+    options[:ssl_cacerts_location] = ask "Please enter this server installation's ssl root and intermediate "+
+      "certificates location. This is where any intermediate certificate, if any is required, will be installed.\n"+
+          "[#{Detect::SSL_CACERTS_LOCATION}]"
+    options[:ssl_cacerts_location] = Detect::SSL_CACERTS_LOCATION if options[:ssl_cacerts_location].empty?
+    create_file("~/.ssl/config.yml", "ssl_certs_location: #{options[:ssl_certs_location]}\n"+
+        "ssl_cacerts_location: #{options[:ssl_cacerts_location]}\n")
+  end
+
+  desc "create", "create new ssl certificate"
+  method_option :site, :aliases => "-s", :desc => "directory of the website to install the ssl certificate"
+  method_option :certs, :aliases => "-c", :desc => "this server installation's ssl certificates directory location"
+  method_option :cacerts, :aliases => "-a",
+        :desc => "this server installation's ssl root and intermediate certificates location. This is where "+
+        "any intermediate certificate, if any is required, will be installed."
+  method_option :subject, :desc => "subject or common name", :required=>:true
+  method_option :org, :desc => "organization", :required=>:true
+  method_option :dept, :desc => "department"
+  method_option :city, :desc => "city"
+  method_option :state, :desc => "state or province field"
+  method_option :country, :desc => "2-character ISO-3166 country code field for the ssl certificate "+
+    "(please see https://www.ssl.com/csrs/country_codes for accepted codes)", :required=>:true
+  def create
+    puts "create #{options.inspect}"
+  end
+
+  desc "install" ,"install ssl certificate"
+  method_option :delay,  :default => 0, :aliases => "-w", :desc => "wait server finish it's job"
+
+  def stop
+    puts "stop"
+  end
+
+  def self.source_root
+    File.dirname(__FILE__)
+  end
+
 end
-Detect.ssl_certs(options)
-Detect.ssl_cacerts(options)
-Detect.web_platforms(options)
+Ssl.start
+#Detect.all
