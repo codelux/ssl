@@ -77,7 +77,7 @@ class Detect
           puts "Please type in city name for the ssl certificate. Press enter to leave blank."
           options[:cert_city]=gets.chomp
           puts "Please type in state or province name for the ssl certificate. Press enter to leave blank."
-          options[:cert_city]=gets.chomp
+          options[:cert_state]=gets.chomp
           puts "Please type in 2-character ISO-3166 country code for the ssl certificate "+
                "(please see https://www.ssl.com/csrs/country_codes for accepted codes)."
           puts "[US]"

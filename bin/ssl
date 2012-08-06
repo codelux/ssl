@@ -21,8 +21,9 @@ class Ssl < Thor
     options[:ssl_certs_location] = Detect::SSL_CERTS_LOCATION if options[:ssl_certs_location].empty?
     options[:ssl_cacerts_location] = ask "Please enter this server installation's ssl root and intermediate "+
       "certificates location. This is where any intermediate certificate, if any is required, will be installed.\n"+
-          "[#{Detect::SSL_CACERTS_LOCATION}]"
+          "[#{Detect::SSL_CACERTS_LOCATION}]\n"
     options[:ssl_cacerts_location] = Detect::SSL_CACERTS_LOCATION if options[:ssl_cacerts_location].empty?
+    remove_file("~/.ssl/config.yml")
     create_file("~/.ssl/config.yml", "ssl_certs_location: #{options[:ssl_certs_location]}\n"+
         "ssl_cacerts_location: #{options[:ssl_cacerts_location]}\n")
   end
